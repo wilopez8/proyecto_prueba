@@ -83,7 +83,7 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
         client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
         p = (
-        influxdb_client.Point("Cliente2")
+        influxdb_client.Point("Cliente3")
         .tag("Apellido")
         .field("Estado", estado_cliente)
         )
