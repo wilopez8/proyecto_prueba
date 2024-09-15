@@ -1,9 +1,12 @@
 import streamlit as st
-
-from influxdb_client import InfluxDBClient, Point, WritePrecision
-from influxdb_client.client.write_api import SYNCHRONOUS
 from datetime import datetime
+import influxdb_client
+from influxdb_client.client.write_api import SYNCHRONOUS
 
+import time
+import json
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+import pandas as pd
 
 
 #from streamlit_option_menu import option_menu
@@ -66,11 +69,6 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     
     perfil_cliente = st.text_area("Describa el perfil cliente", key="perfil_cliente")
     priority = st.selectbox("Priority", ["High", "Medium", "Low"], key="priority")
-    
-    
-    submitted = st.form_submit_button("Guardar")
-
-    # Conection to database
 
     bucket = "prueba1"
     org = "tampa_cleaning"
@@ -78,7 +76,7 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     # Store the URL of your InfluxDB instance
     url="https://us-east-1-1.aws.cloud2.influxdata.com"
     #cuando sea el local host 8086.....
-
+    
     if st.button('Registrar'):
         client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
@@ -88,7 +86,7 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
         write_api.write(bucket=bucket, org=org, record=p)
         p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Estado", estado)
         write_api.write(bucket=bucket, org=org, record=p)
-
+    
 
 
     
