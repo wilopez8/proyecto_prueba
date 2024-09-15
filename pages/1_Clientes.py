@@ -69,7 +69,9 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     
     perfil_cliente = st.text_area("Describa el perfil cliente", key="perfil_cliente")
     priority = st.selectbox("Priority", ["High", "Medium", "Low"], key="priority")
-
+    
+    submitted = st.form_submit_button("Guardar")
+    
     bucket = "prueba1"
     org = "tampa_cleaning"
     token = "gY5PojXQ1zAbW2CwdUMFjG5l4PsmLYcx9WCSvJx3Jiq73PZUpRyGWALnB3WqaAUvMfjUo7GgCFph28zwcKHNUQ=="
