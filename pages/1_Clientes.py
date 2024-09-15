@@ -79,7 +79,7 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     url="https://us-east-1-1.aws.cloud2.influxdata.com"
     #cuando sea el local host 8086.....
     
-    if st.button('Registrar'):
+    if submitted:
         client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
         p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Orden", orden_t)
