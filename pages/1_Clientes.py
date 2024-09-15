@@ -82,7 +82,7 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     if submitted:
         client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = influxdb_client.Point("Cliente3").tag("Nombre").field("Estado", estado_cliente)
+        p = influxdb_client.Point("Cliente3").tag("Nombre", nombre).field("Estado", estado_cliente)
         write_api.write(bucket=bucket, org=org, record=p)
 
     # Haciendo pruebas coloque todo lo anterior en comentarios.   
