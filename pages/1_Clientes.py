@@ -82,11 +82,11 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
     if submitted:
         client = influxdb_client.InfluxDBClient(url=url,token=token,org=org)
         write_api = client.write_api(write_options=SYNCHRONOUS)
-        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Orden", orden_t)
+        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Nombre", nombre)
         write_api.write(bucket=bucket, org=org, record=p)
-        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Proceso", proceso)
+        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Apellido", apellido)
         write_api.write(bucket=bucket, org=org, record=p)
-        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Estado", estado)
+        p = influxdb_client.Point("Trazabilidad").tag("location", "Estación 1").field("Estado del cliente", estado_cliente)
         write_api.write(bucket=bucket, org=org, record=p)
     
 
