@@ -1,0 +1,85 @@
+ON anaconda
+
+TO STOP RUNNING THE APP USE ctrl + c
+
+---------------------------------------------------
+TO START THE aplication
+
+cd C:\Users\wilop\OneDrive\Documents\streamlit\proyecto_prueba
+
+and to run the aplication you should write: 
+
+streamlit run Agenda.py  (name of the home page) + tab (to select the file's directory)
+
+---------------------------------------------------
+
+
+to set title of the foticon
+st.set_page_config(
+    page_title="Mityapp",
+    page_icon="���",
+)
+to acces the database i should go to:
+C:\Program Files\influxdb2-2.7.10-windows and then type .\influxd.exe to run it
+then in the browser write: http://127.0.0.1:8086/
+
+to launch the jupyter program type on anaconda : jupyter lab or jupyter notebook
+---------------------------------------------------
+
+python already has installed
+import calendar #core python module 
+from datetime import datetime #core python module 
+use it by 
+
+datetime.today().year = 2024 extract the year
+next year will be -> datetime.today().year+1 = 2025
+
+to create months will be 
+month = list(calendar.month_name[1:])
+
+---------------------------------------------------
+placeholder
+apellido = st.text_input('Apellido', placeholder="Enter the placeholder here")  
+
+dividers: "---" 
+---------------------------------------------------
+pip install streamlit-option-menu 
+watch video  
+
+---------------------------------------------------
+influxdb2:
+to run influxd go to the carpet with
+C:\Program Files\influxdb2-2.7.10-windows
+type the file: influxd.exe 
+then go to localhost http://localhost:8086/
+wilopez52@gmail.com
+Token: Z4vX3q3ygAsro8LnPFBHoqYMTVcBblrKGWc0RHtA4N95pAJiIAE7JghsfIozcRNZWokAuSU8RUb9i3J6TJOVhw==
+
+<measurments><tag><field><timestamp> 
+{
+    "Variable1": "DataA" 
+    "Variable2": "DataB"
+    "Variable3": "DataC"
+    "Variable4": "DataD"
+}  
+
+Equivalent to:
+
+"Variable1" "Variable2" "Variable3" "Variable4"
+    DataA      DataB        DataC       DataD
+
+<measurments> Name for the table :sensor_battery
+<tag> : always strings key="string"
+    if you have more than one tag they have to be separed with a coma ,
+    example: sens_model=XT004,batttype=LiPo
+<field>: can be key="integers,strings or booleans"
+    they are not rccdequired but they are very useful
+    if you have more than one field value they have to be separed with a coma,
+    example: votage=12.5,current=-0.3,temp=19.4
+<timestamp> 
+to write the information you have to leave a space beetween to have 
+the influxdb line protocol:
+<measurments> <tag> <field> <timestamp>
+
+---------------------------------------------------
+
