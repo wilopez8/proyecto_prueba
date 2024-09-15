@@ -84,10 +84,10 @@ with st.form("formulario_ingreso_clientes", clear_on_submit=True):
         write_api = client.write_api(write_options=SYNCHRONOUS)
         p = (
         influxdb_client.Point("Cliente3")
-        .tag("Nombre", nombre)
-        .tag("Apellido", apellido)
-        .tag("Estado", estado_cliente)
-        .field("Cliente nuevo")
+        .tag("Cliente nuevo")   
+        .field("Nombre", nombre)
+        .field("Apellido", apellido)
+        .field("Estado", estado_cliente)
         )
         write_api.write(bucket=bucket, org=org, record=p)
 
